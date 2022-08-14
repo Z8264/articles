@@ -1,13 +1,6 @@
 # CSS 局限性与解决方案
 
-CSS Cascading Style Sheets 层叠样式表
-
-使用CSS来进行前端的样式开发，但随着项目的逐渐庞大，CSS技术局限性也越发明显，主要的问题有两个：
-
-* 作用域问题。
-* 复杂度问题。
-
-例如，开发时命名太大众化会造成冲突，过渡复杂又难以维护。随着技术的不断发展，行业解决方案也呈现百花齐放的开源生态，接下来我们介绍下不同的解决方案。
+CSS， 全称 Cascading Style Sheets， 层叠样式表。用来进行前端的样式开发，但随着项目的逐渐庞大，CSS技术局限性也越发明显，主要的问题有两个，作用域问题和复杂度问题。例如，开发时命名太大众化会造成冲突，过渡复杂又难以维护。随着技术的不断发展，开源生态不断涌现新的解决方案。
 
 * 命名规范
 * 预处理
@@ -16,13 +9,25 @@ CSS Cascading Style Sheets 层叠样式表
 * CSS IN JS
 * Shadow Dom
 
-### 命名规范解决方案
+接下来逐一进行介绍。
 
-技术发展早期，由于前端工程化等技术没有得到广泛的普及，所以出现很多以命名规范为主要技术手段来解决问题的方案。主要代表规范体系有：BEM、OOCSS、AMCSS、SMACSS、SUITCSS、ITCSS。
+### 命名规范
 
-* BEM 【Blocks，Elements，Modifiers】
+命名规范解决方案。技术发展早期，由于前端工程化等技术还没有得到广泛的普及，所以出现很多以约束命名为主的方案。主要代表方案有：
+* BEM 
+* OOCSS 
+* AMCSS
+* SMACSS
+* SUITCSS
+* ITCSS
 
-BEM 设定了块、元素、修饰符三个概念。书写规则上：
+
+
+
+
+* BEM
+
+BEM，即 Blocks，Elements，Modifiers。 规定了块、元素、修饰符三个概念。
 
 ```html
 <div class="father">
@@ -30,7 +35,7 @@ BEM 设定了块、元素、修饰符三个概念。书写规则上：
 </div>
 ```
 
-用单横线 `-` 来表示块与块之间的父子关系。例如，div `father` 与子块 div `child`, 可分别命名为 `.father`,`.father-child`
+用横线 `-` 来表示块与块之间的父子关系。例如，父块与子块可分别命名为 `father`和`father横线child`。
 
 ```html
 <div class="father">
@@ -40,7 +45,7 @@ BEM 设定了块、元素、修饰符三个概念。书写规则上：
 </div>
 ```
 
-用双下划线`__`来表示块与元素之间的关系。例如，div `child`子块中有一个元素 Input，可以命名为 `.father-chidle__input`,  
+用双下划线`__`来表示块与元素之间的关系。例如，子块中有一个元素 Input，可以命名为 `father横线chidle双下划线input`。
 
 ```html
 <div class="father">
@@ -54,24 +59,30 @@ BEM 设定了块、元素、修饰符三个概念。书写规则上：
 </div>
 ```
 
-用双横线`--`来表示具体块和元素的状态。例如，div `father`存在两种不同的背景，何以分别增加修饰类，命名为`.father-child--green` 和 `father-child--red`
+用双横线`--`来表示具体块和元素的状态。例如，父块存在两种不同的背景，何以分别增加修饰类，命名为`father横线child双横线green` 和 `father横线child双横线red`。
 
-* OOCSS **Object Oriented CSS 面向对象的CSS**，主要是通过命名规范来实现“结构和样式分开” 和 “容器和内容分开” 
+O-O-CSS，全称 **Object Oriented CSS ，面向对象的CSS**。主要是通过命名规范来实现“结构和样式分开” ，以及 “容器和内容分开” 。
 
-* AMCSS **Attribute Modules for CSS，即 CSS的属性模块**，简单来说就是通过css属性选择器来模块化CSS，而不是使用class来描述。
-* SMACSS **Scalable and Modular Architecture for CSS 可扩展和模块化的css架构**，讲CSS命名划分为了Base、Layout、Module、State、Theme 五个种类。
-* SUITCSS **SUIT CSS是一种专注于为基于组件的开发改善CSS创作体验的方法**，在工具、组件，变量进行了命名约定。
-* ITCSS，**nverted Triangle CSS 倒三角CSS**，ITCSS的主要原则之一是将CSS代码库分为几个部分（称为layer），这些部分采用倒三角形的形式。
+A-M-CSS，全称 **Attribute Modules for CSS，CSS的属性模块**。简单来说就是通过css属性选择器来模块化CSS，而不是使用 class 来描述。
+
+S-M-A-CSS，全称 **Scalable and Modular Architecture for CSS，可扩展和模块化的css架构**。将CSS命名划分为了Base、Layout、Module、State、Theme 五个种类。
+
+SUIT-CSS，全称 **SUIT CSS，是一种专注于为基于组件的开发改善CSS创作体验的方法**。在工具、组件，变量进行了命名约定。
+
+IT-CSS，全称 **nverted Triangle CSS 倒三角CSS**。ITCSS的主要原则之一是将CSS代码库分为几个部分（称为layer），这些部分采用倒三角形的形式。
 
 
 
-### 预处理 Sass / Less 
+### 预处理
 
+预处理解决方案。
 既然编写原生的 CSS 并不友好，是否可以创建一种新的语言呢？
+其基本思想是，用一种专门的编程语言，为CSS增加了一些编程的特性，将CSS作为目标生成文件，这就是CSS预处理器。代表技术:
+* Sass
+* Less
+* Stylus
 
-其基本思想是，用一种专门的编程语言，为CSS增加了一些编程的特性，将CSS作为目标生成文件，这就是CSS预处理器。代表技术 SASS、LESS、Stylus。
-
-以SASS为例，预处理提供的典型能力有：
+以Sass为例，预处理提供的典型能力有：
 
 * CSS 变量声明 与 变量引用
 * 嵌套CSS
@@ -79,11 +90,9 @@ BEM 设定了块、元素、修饰符三个概念。书写规则上：
 
 
 
-【增加视频演示】
+### 后处理
 
-
-
-### 后处理 PostCSS
+后处理解决方案。
 
 css后处理器是对 css 进行处理，并最终生成 css 预处理器，它属于广义上的 css 预处理器。代表技术PostCSS。
 
@@ -94,11 +103,11 @@ css后处理器是对 css 进行处理，并最终生成 css 预处理器，它�
 * 支持和处理CSS 模块化。
 * 通过使用 stylelint 强化一致性约束并避免样式表中的错误。
 
-PostCSS 为 CSS 模块化的发展提供了很好的技术基础。
 
 
+### 模块化
 
-### CSS 模块化
+CSS 模块化解决方案。
 
 随着 react、vue 等框架的普及使用，我们常常将页面拆分成许多个组件模块。因此，CSS 模块化相关的技术得到了迅速发展。主流技术方案，CSS Modules，Vue scoped css。
 
@@ -166,6 +175,8 @@ Vue 组件作用域 scoped css，这是 Vue 提供的解决方案，具体示例
 
 ### CSS In JS
 
+CSS in JS解决方案。
+
 CSS in JS，意思就是使用 JS 语言写 CSS，脱离单独的 CSS 文件，以实现 css 的模块化。CSS in JS 其实是一种编写思想，目前已经有超过 上百种开源方案的实现，代表技术 styled-components。
 
 具体示例：
@@ -215,11 +226,16 @@ const TomatoButton = styled(Button)`
 
 ### Shadow Dom
 
+Shadow Dom 解决方案。
+
 一种浏览器技术原生支持的技术解决方案。
 
-Web components 的一个重要属性是封装——可以将标记结构、样式和行为隐藏起来，并与页面上的其他代码相隔离，保证不同的部分不会混在一起，可使代码更加干净、整洁。其中，Shadow DOM 接口是关键所在，它可以将一个隐藏的、独立的 DOM 附加到一个元素上。
+Web components 的一个重要属性是封装。可以将标记结构、样式和行为隐藏起来，并与页面上的其他代码相隔离，保证不同的部分不会混在一起，可使代码更加干净、整洁。其中，Shadow DOM 接口是关键所在，它可以将一个隐藏的、独立的 DOM 附加到一个元素上。
 
 ![clipboard.png](https://segmentfault.com/img/bVbny53?w=932&h=458)
 
 Firefox（从版本 63 开始），Chrome，Opera 和 Safari 默认支持 Shadow DOM。基于 Chromium 的新 Edge 也支持 Shadow DOM；而旧 Edge 未能撑到支持此特性。
 
+
+
+以上就是CSS 局限性的主要解决方案介绍。
